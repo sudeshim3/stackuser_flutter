@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:stackuser_flutter/circular_reveal.dart';
 
 void main() => runApp(MaterialApp(
   title: "StackDev",
@@ -12,19 +13,10 @@ void main() => runApp(MaterialApp(
       Widget build(BuildContext context) {
         return Scaffold(
           body: Container(
-            color: Colors.black12,
             child: Column(
               children: <Widget>[
                 SizedBox(height: 18.0,),
-                Row(mainAxisAlignment: MainAxisAlignment.end,
-                  children: <Widget>[
-                  IconButton(icon: Icon(Icons.account_circle, color: HexColor("f48022"),size: 28,) , onPressed: ()=>{},)
-                ],)
-                ,Stack(
-                  children: <Widget>[
-
-                  ],
-                )
+                CircularReveal()
               ],
             ),
           ),
@@ -33,15 +25,5 @@ void main() => runApp(MaterialApp(
     }
 
 
-class HexColor extends Color {
-  static int _getColorFromHex(String hexColor) {
-    hexColor = hexColor.toUpperCase().replaceAll("#", "");
-    if (hexColor.length == 6) {
-      hexColor = "FF" + hexColor;
-    }
-    return int.parse(hexColor, radix: 16);
-  }
 
-  HexColor(final String hexColor) : super(_getColorFromHex(hexColor));
-}
 
